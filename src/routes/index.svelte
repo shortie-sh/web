@@ -137,11 +137,11 @@ import { onMount } from "svelte";
 </section>
 
 <style>
-    h1 {
+    * {
         font-family: 'NHG'
     }
 
-    h2, .cli-font {
+    h2, .cli-font, a {
         font-family: 'Roboto Mono'
     }
 </style>

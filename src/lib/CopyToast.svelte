@@ -10,3 +10,9 @@
         <p class="text-kindablack dark:text-kindawhite">copied redirect url to clipboard</p>
     </div>
 {/if}
+
+<style>
+    * {
+        font-family: 'NHG'
+    }
+</style>

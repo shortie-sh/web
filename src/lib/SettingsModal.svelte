@@ -28,7 +28,7 @@ function cancelUrl() {
             <div class="px-4 pt-5 pb-4 bg-kindawhite dark:bg-kindablack sm:p-6 sm:pb-4">
             <div class="sm:flex sm:items-start">
                 <div class="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left">
-                <h3 class="text-lg font-medium leading-6 text-kindablack dark:text-kindawhite" id="modal-title">
+                <h3 class="text-lg font-medium leading-6 text-kindablack dark:text-kindawhite font-bold" id="modal-title">
                     Change instance
                 </h3>
                 <div class="mt-2">
@@ -52,3 +52,9 @@ function cancelUrl() {
         </div>
     </div>
 {/if}
+
+<style>
+    * {
+        font-family: 'NHG'
+    }
+</style>
