@@ -5,10 +5,16 @@
     import UnderInputInfo from "$lib/underInputInfo.svelte";
     import { fade } from 'svelte/transition';
     import { instanceUrl } from '$lib/stores';
+    import { typewriter } from '$lib/typewriter'
+import { onMount } from "svelte";
 
     $: apiUrl = $instanceUrl + "/api/graphql"
     
     let instanceObj;
+    let inTransitions = {};
+    onMount(() => {
+        inTransitions = {};
+    })
     
     $: {
         try {
@@ -95,19 +101,21 @@
 <section class="relative flex flex-col items-center justify-center w-screen h-screen overflow-x-hidden bg-kindawhite dark:bg-kindablack ">
     <div class="mb-5 text-center justify-self-center">
         <h1 class="mb-3 text-7xl dark:text-kindawhite"><span class="font-semibold">shortie</span>.sh</h1>
-        <h2 class="text-xl dark:text-kindawhite">a very nerdy url shortener</h2>
+        {#key inTransitions}
+            <h2 class="text-xl dark:text-kindawhite" in:typewriter>a very nerdy url shortener</h2>
+        {/key}
     </div>
     <div class="flex flex-col w-full h-10 mx-5 md:w-96 justify-self-center">
-        <form id="newredirect" class="pb-2" on:submit|preventDefault={handleSubmit}>
-            <div class="w-full h-full border-2 border-solid border-black dark:border-kindawhite p-1.5 drop-shadow-xl bg-kindawhite dark:bg-black dark:text-kindawhite text-kindablack flex flex-row justify-center">
+        <form id="newredirect" class="pb-2 w-full flex-grow " on:submit|preventDefault={handleSubmit}>
+            <div class="h-full w-max min-w-full border-2 border-solid border-black dark:border-kindawhite p-1.5 drop-shadow-xl bg-kindawhite dark:bg-black dark:text-kindawhite text-kindablack flex flex-row justify-center flex-grow">
                 {#if stage == "waiting"}
                     <input in:fade="{{delay: 250, duration: 300}}" class="inline w-full h-full text-center bg-transparent outline-none" id="url" type="text" placeholder="enter url here" autocomplete="off" bind:value={url}>
                 {:else if stage == "urlSubmitted"}
-                    <label in:fade="{{delay: 250, duration: 300}}">
-                        <span id="shortie-url" class="w-fit text-opacity-70 opacity-70">{instanceObj.host}/</span>
-                        <input bind:value={ending} class="inline h-full text-left bg-transparent outline-none w-min" id="url" placeholder="enter custom ending" autocomplete="off" data-ending="false" size="14">
-                        <input type="submit" value="->" class="px-2 border-2 border-white cli-font hover:bg-kindawhite hover:bg-opacity-25">
-                    </label>
+                    {#key instanceObj}
+                        <span in:fade="{{delay: 250, duration: 300}}" id="shortie-url" class="w-fit text-opacity-70 opacity-70 ml-2 self-center justify-self-center">{instanceObj.host}/</span>
+                        <input in:fade="{{delay: 250, duration: 300}}" bind:value={ending} class="inline h-full text-left bg-transparent outline-none w-min pr-1" id="url" placeholder="enter custom ending" autocomplete="off" data-ending="false" size="14">
+                        <input in:fade="{{delay: 250, duration: 300}}" type="submit" value="->" class="px-2 border-2 border-white cli-font hover:bg-kindawhite hover:bg-opacity-25 mr-2">
+                    {/key}
                 {:else if stage == 'doneSubmitting' || stage == "created" || stage == "errored"}
                     {#await createRedirectPromise}
                         <input in:fade="{{delay: 250, duration: 300}}" class="inline w-full h-full text-center bg-transparent outline-none" id="url" type="text" placeholder="enter url here" autocomplete="off"  disabled={true} value="creating...">

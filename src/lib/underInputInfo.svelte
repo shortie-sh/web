@@ -13,3 +13,9 @@
 {:else if status == "created"}
     <p in:fade="{{delay: 250, duration: 300}}" out:fade="{{delay: 250, duration: 300}}" on:click="{() => dispatch('click')}" id="below-newurl" class="text-center underline cursor-pointer dark:text-kindawhite">create another redirect?</p>
 {/if}
+
+<style>
+    .cli-font {
+        font-family: 'Roboto Mono'
+    }
+</style>

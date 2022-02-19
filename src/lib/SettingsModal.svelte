@@ -8,7 +8,7 @@ let modalOpen: boolean;
 let ephemeralInstanceUrl: string = $instanceUrl;
 
 function saveUrl() {
-    $instanceUrl = ephemeralInstanceUrl;
+    instanceUrl.set(ephemeralInstanceUrl);
     modalOpen = false;
 }
 
