@@ -127,3 +127,24 @@
         <p class="absolute bottom-0 block text-center -translate-x-1/2 -translate-y-1/2 left-1/2 dark:text-kindawhite">also check out our amazing <a id="graphql" target="_blank" class="underline cli-font" href="https://shortie.sh/api/graphql">GraphQL</a> and <a id="rest" target="_blank" class="underline cli-font" href="https://shortie.sh/api/rest/openapi.yml">REST</a> APIs! </p>
     </div>
 </section>
+
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
+
+    @font-face {
+        font-family: 'NHG';
+        src: url("./static/NHG-55Rg.ttf")
+    }
+    @font-face {
+        font-family: 'NHG';
+        src: url("./static/NHG-75Bd.ttf");
+        font-weight: bold;
+    }
+    h1 {
+        font-family: 'NHG'
+    }
+
+    h2, .cli-font {
+        font-family: 'Roboto Mono'
+    }
+</style>
