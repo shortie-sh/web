@@ -7,7 +7,6 @@
     import { instanceUrl } from '$lib/stores';
     import { typewriter } from '$lib/typewriter'
     import { onMount } from "svelte";
-    import Head from '$lib/Head.svelte'
 
     $: apiUrl = $instanceUrl + "/api/graphql"
     
