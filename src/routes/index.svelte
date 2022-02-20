@@ -6,7 +6,8 @@
     import { fade } from 'svelte/transition';
     import { instanceUrl } from '$lib/stores';
     import { typewriter } from '$lib/typewriter'
-import { onMount } from "svelte";
+    import { onMount } from "svelte";
+    import Head  from '$lib/head.svelte'
 
     $: apiUrl = $instanceUrl + "/api/graphql"
     
@@ -82,10 +83,7 @@ import { onMount } from "svelte";
 </script>
 
 <svelte:head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>shortie.sh</title>
+    <Head/>
 </svelte:head>
 
 <div on:click={() => modalOpen = !modalOpen} id="settings" class="absolute z-50 transition ease-out hover:animate-shortspin dark:fill-kindawhite fill-kindablack bottom-4 right-4">
