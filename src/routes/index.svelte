@@ -82,10 +82,6 @@
     }
 </script>
 
-<svelte:head>
-    <Head/>
-</svelte:head>
-
 <div on:click={() => modalOpen = !modalOpen} id="settings" class="absolute z-50 transition ease-out hover:animate-shortspin dark:fill-kindawhite fill-kindablack bottom-4 right-4">
     <svg xmlns="http://www.w3.org/2000/svg" height="32px" viewBox="0 0 24 24" width="32px">
     <path d="M0 0h24v24H0V0z" fill="none"></path>
